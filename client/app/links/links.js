@@ -8,7 +8,6 @@
       url: '/api/links'
     })
     .then(function(response){
-      var dataFromServer = response.data;
       $scope.data.links = response.data;
     })
     .catch(function(error){

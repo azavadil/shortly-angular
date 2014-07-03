@@ -10,7 +10,7 @@ angular.module('shortly.shorten', [])
     $http.post('/api/links', $scope.link )
     .then(function(response){
       $scope.loading = false;
-      console.log(response);
+      $location.path('/index');
     })
     .catch(function(error){
       console.log(error);
