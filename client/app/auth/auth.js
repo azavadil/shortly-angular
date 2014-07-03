@@ -5,8 +5,11 @@ angular.module('shortly.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
+  $scope.submitted = false;
+  $scope.errMsg = '';
 
   $scope.signin = function () {
+    $scope.submitted = true;
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
@@ -14,10 +17,12 @@ angular.module('shortly.auth', [])
       })
       .catch(function (error) {
         console.error(error);
+        $scope.errMsg = "Invalid Login";
       });
   };
 
   $scope.signup = function () {
+    $scope.submitted = true;
     Auth.signup($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
@@ -25,6 +30,9 @@ angular.module('shortly.auth', [])
       })
       .catch(function (error) {
         console.error(error);
+        $scope.errMsg = "Name Already Used";
       });
   };
+
+
 });
