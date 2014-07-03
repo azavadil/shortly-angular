@@ -1,6 +1,9 @@
 <div id='container'>
-<!-- Your code here -->
-
+  <form ng-submit="addLink()" ng-controller="ShortenController">
+      <input class='text' type='url' name='url' ng-model="link.url">
+      <input type='submit' value='Shorten'>
+  </form>
+  <img class='spinner' src='/assets/spiffygif_46x46.gif' ng-if='loading'>
 </div>
 
 

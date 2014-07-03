@@ -9,7 +9,7 @@
     })
     .then(function(response){
       var dataFromServer = response.data;
-      $scope.data.links = dataFromServer;
+      $scope.data.links = response.data;
     })
     .catch(function(error){
       console.log(error);
